@@ -1,0 +1,148 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0px;
+  background: rgb(240, 240, 240);
+}
+
+button {
+  cursor: pointer;
+}
+
+.question {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.18);
+  margin-top: 20px;
+}
+
+.editor {
+  width: calc(100% - 20px);
+  max-width: 560px;
+  margin: auto;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 15px;
+  color: rgb(130, 130, 130);
+}
+
+.topbar svg {
+  width: 14px;
+  height: 14px;
+}
+
+.topbar button {
+  width: 28px;
+  height: 28px;
+  padding: 0px;
+  border: none;
+  background: transparent;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.2s;
+}
+
+.topbar button:hover {
+  color: rgb(255, 4, 4);
+  background: rgba(255, 0, 0, 0.14);
+}
+
+.question textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid rgb(166, 166, 166);
+  margin: 7px 0px;
+  resize: vertical;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(166, 166, 166);
+  border-radius: 6px;
+  padding-left: 7px;
+  overflow: hidden;
+}
+
+.option input[type="radio"] {
+  margin: 0px;
+  z-index: 1;
+}
+
+.option input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 6px 7px;
+  outline: none;
+}
+
+.opt-inp {
+  flex: 1;
+  border: none;
+  padding: 6px 7px;
+  outline: none;
+}
+
+.option:has(.opt-inp:focus) {
+  border-color: blue;
+}
+
+.controls button {
+  border: none;
+  background: rgb(140, 140, 140);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.hide {
+  opacity: 0%;
+  pointer-events: none;
+}
+
+.q-text {
+  margin: 7px 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ans-text {
+  font-size: 14px;
+  line-height: 28px;
+  padding: 0px 7px;
+}
+
+.correct {
+  background: rgb(206, 255, 212);
+}
+
+.wrong {
+  background: rgb(255, 208, 208);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Quizzer</title>
+  </head>
+  <body>
+    <main class="editor" v-scope @vue:mounted="addQuestion()">
+      <div class="question" v-for="item, i in questions">
+        <div class="topbar">
+          <div class="title">Otázka #{{ i + 1 }}</div>
+          <button
+            :class="{ hide: questions.length < 2 }"
+            @click="questions.splice(i, 1)"
+          >
+            <i data-lucide="trash"></i>
+          </button>
+        </div>
+        <textarea rows="3" v-model="item.text"></textarea>
+        <div class="options">
+          <div class="option" v-for="_, j in 4">
+            <input
+              type="radio"
+              :checked="j === item.answer"
+              @change="item.answer = j"
+            />
+            <input class="opt-inp" type="text" v-model="item.options[j]" />
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <button @click="addQuestion()">Přidat otázku</button>
+        <button @click="createQuiz()">Vytvořit kvíz</button>
+      </div>
+    </main>
+    <script type="module" src="/js/home.js"></script>
+  </body>
+</html>

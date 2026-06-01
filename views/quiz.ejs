@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Quizzer</title>
+  </head>
+  <body>
+    <main class="editor" v-scope @vue:mounted="onMount()">
+      <div class="question" v-for="item, i in questions">
+        <div class="topbar">
+          <div class="title">Otázka #{{ i + 1 }}</div>
+        </div>
+        <div class="q-text">
+          {{ item.text }}
+        </div>
+        <div class="options">
+          <div
+            class="option"
+            v-for="_, j in 4"
+            :class="{ correct: item.answer === j && isFinished === true,
+            wrong: isFinished === true &&  item.selected === j}"
+          >
+            <input
+              type="radio"
+              :checked="j === item.selected"
+              @change="if (isFinished === false) item.selected = j"
+              v-if="isFinished === false"
+            />
+            <div class="ans-text">{{ item.options[j] }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="controls" v-if="isFinished === false">
+        <div></div>
+        <button @click="isFinished = true">Dokončit kvíz</button>
+      </div>
+      <div class="controls" v-else>
+        <div>Správně: {{ correctCount }}/{{ questions.length }}</div>
+        <button @click="restart()">Hrát znovu</button>
+      </div>
+    </main>
+    <script>
+      const data = JSON.parse(`<%- JSON.stringify(data) %>`);
+    </script>
+    <script type="module" src="/js/quiz.js"></script>
+  </body>
+</html>
