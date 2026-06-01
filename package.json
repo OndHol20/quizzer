@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "bun --hot app.js",
+    "start": "bun app.js",
     "push": "bunx drizzle-kit push"
   }
 }
