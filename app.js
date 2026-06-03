@@ -6,7 +6,7 @@ import { quizes } from "./db/quizes";
 import { eq } from "drizzle-orm";
 
 const app = express();
-const db = drizzle("data.db");
+const db = drizzle("/data/data.db");
 
 app.set("view engine", "ejs");
 
