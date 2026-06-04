@@ -20,7 +20,7 @@
             class="option"
             v-for="_, j in 4"
             :class="{ correct: item.answer === j && isFinished === true,
-            wrong: isFinished === true &&  item.answer !== j}"
+            wrong: isFinished === true &&  item.selected === j}"
           >
             <input
               type="radio"
